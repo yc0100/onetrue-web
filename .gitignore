@@ -44,3 +44,6 @@ next-env.d.ts
 *firebase-adminsdk*.json
 serviceAccount*.json
 onetrue-*-firebase-adminsdk-*.json
+
+id_ed25519
+id_ed25519.pub
