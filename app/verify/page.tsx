@@ -41,6 +41,15 @@ export default function VerifyPage() {
     return t && p && status !== "loading";
   }, [tagId, pin, status]);
 
+  function resetForm() {
+    setTagId("");
+    setPin("");
+    setShowPin(false);
+    setStatus("idle");
+    setResult(null);
+    setErrMsg("");
+  }
+
   async function onVerify() {
     setStatus("loading");
     setErrMsg("");
@@ -90,7 +99,11 @@ export default function VerifyPage() {
       {/* top bar */}
       <div className="border-b border-white/5 bg-zinc-950/70 backdrop-blur">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="text-sm text-zinc-300 hover:text-white">
+          <Link
+            href="/"
+            onClick={resetForm}
+            className="text-sm text-zinc-300 hover:text-white"
+          >
             ← Back to Home
           </Link>
           <div className="text-sm text-zinc-400">Consumer Verify</div>
@@ -186,11 +199,14 @@ export default function VerifyPage() {
                 >
                   Verify
                 </button>
+
+                {/* ✅ changed: Enterprise Portal -> Back to Home + reset */}
                 <Link
-                  href="/enterprise"
+                  href="/"
+                  onClick={resetForm}
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/60 px-5 py-3 text-sm hover:bg-white/10"
                 >
-                  Enterprise Portal
+                  Back to Home
                   <ArrowRight className="h-4 w-4 opacity-70" />
                 </Link>
               </div>

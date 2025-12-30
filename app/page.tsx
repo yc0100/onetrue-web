@@ -111,6 +111,15 @@ function Header() {
           >
             Enterprise
           </Link>
+
+          {/* ✅ NEW: Goods Owner */}
+          <Link
+            href="/owner"
+            className="hidden sm:inline-flex rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm hover:bg-white/10"
+          >
+            Goods Owner
+          </Link>
+
           <Link
             href="/verify"
             className="inline-flex rounded-xl px-3 py-2 text-sm font-medium text-white bg-[linear-gradient(90deg,var(--ot-dark),var(--ot-primary),var(--ot-light))] hover:opacity-90"
@@ -152,12 +161,10 @@ function Hero() {
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Link
-                href="/enterprise"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm hover:bg-white/10"
+                href="/"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/60 px-5 py-3 text-sm hover:bg-white/10"
               >
-                <Building2 className="h-4 w-4" />
-                Enterprise Portal
-                <ArrowRight className="h-4 w-4 opacity-70" />
+                ← Back to Home
               </Link>
               <Link
                 href="/verify"
