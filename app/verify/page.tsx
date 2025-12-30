@@ -174,12 +174,18 @@ export default function VerifyPage() {
                 <button
                   onClick={onVerify}
                   disabled={!canSubmit}
-                  className="inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-medium text-white disabled:opacity-40 bg-[linear-gradient(90deg,var(--ot-dark),var(--ot-primary),var(--ot-light))] hover:opacity-90"
+                  className="
+                    inline-flex items-center justify-center gap-2
+                    rounded-2xl px-5 py-3 text-sm font-medium text-white
+                    border border-white/20
+                    bg-[linear-gradient(90deg,var(--ot-dark),var(--ot-primary),var(--ot-light))]
+                    hover:border-white/40 hover:opacity-95
+                    focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-zinc-950
+                    disabled:opacity-40 disabled:hover:border-white/20
+                  "
                 >
-                  {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
                   Verify
                 </button>
-
                 <Link
                   href="/enterprise"
                   className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/60 px-5 py-3 text-sm hover:bg-white/10"

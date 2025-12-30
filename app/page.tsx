@@ -124,6 +124,10 @@ function Header() {
 }
 
 function Hero() {
+  const [demoOpen, setDemoOpen] = React.useState(false);
+  // TODO: 换成你自己的 YouTube VIDEO_ID
+  const YT_ID = "-p5x_p7vTm8";
+  
   return (
     <section id="top" className="relative">
       <div className="mx-auto max-w-6xl px-4 pt-16 pb-10 md:pt-24">
@@ -163,6 +167,16 @@ function Hero() {
                 Consumer Verify
                 <ArrowRight className="h-4 w-4 opacity-70" />
               </Link>
+
+
+              <button
+                type="button"
+                onClick={() => setDemoOpen(true)}
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/60 px-5 py-3 text-sm hover:bg-white/10"
+              >
+                Watch Demo
+                <ArrowRight className="h-4 w-4 opacity-70" />
+              </button>
             </div>
 
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -205,6 +219,44 @@ function Hero() {
           </div>
         </motion.div>
       </div>
+      {demoOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setDemoOpen(false)}
+        >
+          <div
+            className="w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-zinc-950"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+              <div className="text-sm text-zinc-200">Android App Demo</div>
+              <button
+                className="text-sm text-zinc-400 hover:text-white"
+                onClick={() => setDemoOpen(false)}
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="relative w-full aspect-video bg-black">
+              <iframe
+                id="ot-yt-player"
+                className="absolute inset-0 h-full w-full"
+                //src="https://www.youtube-nocookie.com/embed/-p5x_p7vTm8?autoplay=1&controls=1&modestbranding=1&rel=0&enablejsapi=1"
+                //src={`https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&controls=1&modestbranding=1&rel=0&enablejsapi=1`}
+                src={`https://www.youtube-nocookie.com/embed/${YT_ID}?autoplay=1&controls=1&modestbranding=1&rel=0`}
+
+
+                //allow="autoplay; encrypted-media"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}  
     </section>
   );
 }
