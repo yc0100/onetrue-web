@@ -161,10 +161,12 @@ function Hero() {
 
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Link
-                href="/"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-zinc-950/60 px-5 py-3 text-sm hover:bg-white/10"
+                href="/enterprise"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm hover:bg-white/10"
               >
-                ← Back to Home
+                <Building2 className="h-4 w-4" />
+                Enterprise Portal
+                <ArrowRight className="h-4 w-4 opacity-70" />
               </Link>
               <Link
                 href="/verify"
